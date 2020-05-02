@@ -12,13 +12,13 @@
       <div>Please select your role:</div>
       
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class='button--blue'>
+        <a href="customer" target="_blank" class='button--blue'>
           Customer
         </a>
       </div>
 
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--purple">
+        <a href="owner" target="_blank" class="button--purple">
           Business Owner
         </a>
       </div>
