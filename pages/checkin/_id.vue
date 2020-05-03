@@ -83,7 +83,7 @@ export default {
         mobile: this.mobile
       })
       if (res.status == "done"){
-        this.$router.push('checkin/success');
+        this.$router.push('success');
       }
     }
   },
