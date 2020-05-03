@@ -17,7 +17,7 @@
       </div>
 
       <div class="md:w-2/3 mx-5">
-        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Please enter your name" >
+        <input v-model="customerName" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Please enter your name" >
       </div>
     </div>
 
@@ -28,7 +28,7 @@
         </label>
       </div>
       <div class="md:w-2/3 mx-5">
-        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-phone" type="tel" placeholder="e.g. 012-7833132" pattern="01[0-9]{1}-[0-9]{8}">
+        <input v-model="mobile" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-phone" type="tel" placeholder="e.g. 012-7833132" pattern="01[0-9]{1}-[0-9]{8}">
       </div>
     </div>
     
@@ -64,7 +64,9 @@ export default {
   },
   data() {
     return {
-      fullName: ""
+      fullName: "",
+      customerName: "",
+      mobile: ""
     }
   },
   methods: {
@@ -73,6 +75,16 @@ export default {
       const fn = await this.$axios.$get('https://api.getdingding.com/owner/' + id)
       console.log(fn);
       return fn[0].name;
+    },
+    async submit() {
+      var id = this.$route.params.id;
+      const res = await this.$axios.$post(`https://api.getdingding.com/owner/checkin/${id}`, {
+        customerName: this.customerName,
+        mobile: this.mobile
+      })
+      if (res.status == "done"){
+        this.$router.push('checkin/success');
+      }
     }
   },
   async mounted() {

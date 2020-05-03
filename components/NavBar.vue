@@ -11,7 +11,7 @@
   export default {
     computed: {
       getClass() {
-        if (this.$route.path.includes('owner')) { 
+        if (this.$route.path.includes('owner') || this.$route.path.includes('poster')) { 
           return "bg-purple-600";
         }
         return "bg-blue-600";

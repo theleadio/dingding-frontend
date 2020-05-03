@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+console.log(process.env.BASE_URL);
+
 
 export default {
   mode: 'universal',
@@ -42,6 +46,10 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-165416269-1'
+    }],
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules

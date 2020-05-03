@@ -12,7 +12,7 @@
       <div>Please select your role:</div>
       
       <div class="links">
-        <a href="customer" class='button--blue'>
+        <a href="customer" class='hidden'>
           Customer
         </a>
       </div>

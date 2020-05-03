@@ -37,14 +37,6 @@ export default {
     }
   },
   methods: {
-    register: async function() {
-      console.log('registering...');
-      const res = await this.$axios.$post('https://api.getdingding.com/owner')
-      if (res.status == "done") {
-        this.$router.push("poster/ah-liang")
-      }
-    },
-
     print() {
       window.print();
     }
