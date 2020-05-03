@@ -39,7 +39,7 @@ export default {
   methods: {
     register: async function() {
       console.log('registering...');
-      const res = await this.$axios.$post('http://localhost:5000/owner')
+      const res = await this.$axios.$post('https://api.getdingding.com/owner')
       if (res.status == "done") {
         this.$router.push("poster/ah-liang")
       }
@@ -53,7 +53,7 @@ export default {
     var id = this.$route.params.id;
     var vm = this;
     console.log(id);
-    this.$axios.get(`http://localhost:5000/owner/${id}`)
+    this.$axios.get(`https://api.getdingding.com/owner/${id}`)
     .then( function(result) {
       console.log(result.data[0].name);
       vm.displayName = result.data[0].name;

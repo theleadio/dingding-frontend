@@ -80,7 +80,7 @@ export default {
   methods: {
     register: async function() {
       console.log('registering...');
-      const res = await this.$axios.$post('http://localhost:5000/owner', {
+      const res = await this.$axios.$post('https://api.getdingding.com/owner', {
         businessName: this.businessName,
         mobile: this.mobile
       })
