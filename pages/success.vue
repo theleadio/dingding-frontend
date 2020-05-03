@@ -6,27 +6,11 @@
         DingDing
       </h1>
       <h2 class="subtitle md:super-subtitle">
-        Keeping everybody safe from Covid19
+        You have checked in successfully. 
       </h2>
+
+      <div>You may close this window now.</div>
       
-      <div>Please select your role:</div>
-      
-      <div class="links">
-        <a href="customer" class='button--blue'>
-          Customer
-        </a>
-      </div>
-
-      <div class="links">
-        <a href="owner" class="button--purple">
-          Business Owner
-        </a>
-      </div>
-
-      <div class='text-center pt-4 px-5 md:px-20'>
-        The DingDing app helps business owners to keep you, your friends and family safe. You will be the first to be informed if you ever been exposed to any risk of Covid19 virus. 
-      </div>
-
 
     </div>
 

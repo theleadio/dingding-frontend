@@ -11,10 +11,10 @@
   export default {
     computed: {
       getClass() {
-        if (this.$route.path.includes('customer')) { 
-          return "bg-blue-600";
+        if (this.$route.path.includes('owner')) { 
+          return "bg-purple-600";
         }
-        return "bg-purple-600";
+        return "bg-blue-600";
       }
     }
   }
