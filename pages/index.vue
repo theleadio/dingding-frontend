@@ -1,18 +1,18 @@
 <template>
-  <div class="mobile-container md:container">
-    <div>
+  <div class="mobile-container md:container flex-col">
+    <div class='pb-10'>
       <logo />
       <h1 class="title md:super-title">
         DingDing
       </h1>
       <h2 class="subtitle md:super-subtitle">
-        Keeping everybody safe from Covid19
+        Keep track of your customers easily. 
       </h2>
       
       <div>Please select your role:</div>
       
-      <div class="links">
-        <a href="customer" class='hidden'>
+      <div class="links hidden">
+        <a href="customer">
           Customer
         </a>
       </div>
@@ -24,23 +24,37 @@
       </div>
 
       <div class='text-center pt-4 px-5 md:px-20'>
-        The DingDing app helps business owners to keep you, your friends and family safe. You will be the first to be informed if you ever been exposed to any risk of Covid19 virus. 
+        DingDing app helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. 
       </div>
 
 
     </div>
-
+    
+    <!-- Second Row -->
+    <div class='bg-gray-200 w-full py-10 text-left'>
+      <h2 class='subtitle md:super-subtitle text-center'>What is DingDing?</h2>
+      <p class='px-4'>DingDing is an application that helps you to keep track of customers who have visited your shop, as part of the SOP requirements by the government, and helps to keep yourself and your customers safe.</p>
+      <p class='px-4 mt-4 font-semibold'>Follow the steps below to begin using DingDing:</p>
+      <ol class='px-4 list-disc list-inside'>
+        <li>STEP 1: Select your role as a business owner, sign up for an account using your mobile phone.</li>
+        <li>STEP 2: Print the QR code and paste it around your premise, or send it to your customers.</li>
+        <li>STEP 3: Make sure your customers to scan the QR code and register, before entering your premise.</li>
+      </ol>
+    </div>
   </div>
+
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
 
-console.log(process.env.BASE_URL);
 
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    console.log(this.$api);
   }
 }
 </script>
@@ -73,14 +87,12 @@ export default {
   } 
 
   .title {
-    font-family: 'Helvetica Neue';
     display: block;
     font-size: 60px;
     color: #35495e;
   }
 
   .super-title {
-    font-family: 'Helvetica Neue';
     display: block;
     font-size: 100px;
     color: #35495e;    
@@ -104,6 +116,6 @@ export default {
 
 
 .links {
-  padding-top: 15px;
+  padding-top: 9px;
 }
 </style>

@@ -72,8 +72,8 @@ export default {
   methods: {
     async getLocation() {
       var id = this.$route.params.id;
-      const fn = await this.$axios.$get('https://api.getdingding.com/owner/' + id)
-      console.log(fn);
+      // const fn = await this.$axios.$get('https://api.getdingding.com/owner/' + id)
+      const fn = await this.$api.checkOwner(id);
       return fn[0].name;
     },
     async submit() {
@@ -83,7 +83,7 @@ export default {
         mobile: this.mobile
       })
       if (res.status == "done"){
-        this.$router.push('success');
+        this.$router.push('/checkin/success');
       }
     }
   },
