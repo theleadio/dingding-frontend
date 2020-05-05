@@ -2,24 +2,27 @@
 <div>
   <NavBar />
 
-  <div class='w-full lg:w-1/3 px-10 mx-auto mt-6' v-show="error">
+  <div class='w-1/3 sm:w-full bg-gray-100 mx-auto mt-6' v-show="error">
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
-      <strong class="font-bold">Registration failed!</strong>
+      <strong class="font-bold">Login failed</strong>
       <span class="block sm:inline">{{ errorMessage }}</span>
+      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+      </span>
     </div>
   </div>
 
   <div class="container">
     <div>
       <h2 class="subtitle mt-8 mb-4">
-        Business Registration
+        Business Owner Login
       </h2>
 
   <form class="w-full">
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-          Business Name
+          Mobile
         </label>
       </div>
       <div class="md:w-2/3">
@@ -29,7 +32,7 @@
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-phone">
-          Mobile 
+          Password
         </label>
       </div>
       <div class="md:w-2/3">
@@ -39,14 +42,14 @@
     <div class="md:flex md:items-center mb-6">
       <label class="md:w-full block text-gray-700">
         <span class="text-sm lg:pl-6">
-          Already register? <nuxt-link to="/owner/login">Login</nuxt-link> here
+          Forgot password? <nuxt-link to="/owner/reset">Click here to reset.</nuxt-link>
         </span>
       </label>
     </div>
     <div class="md:flex md:items-center">
       <div class='mx-auto'>
-        <button @click="register" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-          Register
+        <button @click="login" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+          Login
         </button>
       </div>
     </div>
