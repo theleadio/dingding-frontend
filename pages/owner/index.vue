@@ -1,59 +1,35 @@
+
 <template>
 <div>
   <NavBar />
 
-  <div class='w-full lg:w-1/3 px-10 mx-auto mt-6' v-show="error">
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
-      <strong class="font-bold">Registration failed!</strong>
-      <span class="block sm:inline">{{ errorMessage }}</span>
-    </div>
-  </div>
-
   <div class="container">
     <div>
-      <h2 class="subtitle mt-8 mb-4">
-        Business Registration
+      <h2 class="text-4xl mt-8">
+        {{ this.$auth.user.displayname }}
       </h2>
+      <h3 class='text-xl mb-4'>Customer List</h3>
+    </div>
+    
+    <div class='px-4'>
+      <table class="table-auto mx-auto">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Time</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(c, idx) in customers" v-bind:key="idx">
+            <td class='border px-4 py-2 '>{{ c.checkin_time | moment("DD/MM/yyyy") }}</td>
+            <td class='border px-4 py-2 text-left'>{{ c.customerName }}</td>
+            <td class='border px-4 py-2'>{{ c.mobile }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <form class="w-full">
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-          Business Name
-        </label>
-      </div>
-      <div class="md:w-2/3">
-        <input v-model="businessName" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="e.g. Yummy Burger" >
-      </div>
-    </div>
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-phone">
-          Mobile 
-        </label>
-      </div>
-      <div class="md:w-2/3">
-        <input v-model="mobile" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-phone" type="tel" placeholder="e.g. 012-7833132" pattern="01[0-9]{1}-[0-9]{8}">
-      </div>
-    </div>
-    <div class="md:flex md:items-center mb-6">
-      <label class="md:w-full block text-gray-700">
-        <span class="text-sm lg:pl-6">
-          Already register? <nuxt-link to="/owner/login">Login</nuxt-link> here
-        </span>
-      </label>
-    </div>
-    <div class="md:flex md:items-center">
-      <div class='mx-auto'>
-        <button @click="register" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-          Register
-        </button>
-      </div>
-    </div>
-  </form>      
-      
-
-    </div>
   </div>
 </div>
 </template>
@@ -61,6 +37,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import NavBar from '~/components/NavBar.vue'
+import moment from 'vue-moment';
 
 export default {
   components: {
@@ -72,27 +49,17 @@ export default {
       businessName: "",
       mobile: "",
       error: false,
-      errorMessage: ""
+      errorMessage: "",
+      customers:[]
     }
   },
-  methods: {
-    register: async function() {
-      console.log('registering...');
-      const res = await this.$axios.$post('https://api.getdingding.com/owner', {
-        businessName: this.businessName,
-        mobile: this.mobile
-      })
-      console.info(res);
-      if (res.status == "done") {
-        this.$router.push({path: `/poster/${res.id}`});
-      }
-      else {
-        this.error = true;
-        this.errorMessage = "Name has already taken, please try again"
-        console.log(res);
-      }
-    }
-  }
+  async mounted() {
+    console.log(moment);
+    var id = this.$auth.user.id;
+    const res = await this.$axios.$get(`/owner/${id}/list`)
+    this.customers = res;
+  },
+  middleware: 'auth'
 }
 </script>
 
@@ -104,7 +71,6 @@ export default {
 */
 .container {
   margin: 0 auto;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;

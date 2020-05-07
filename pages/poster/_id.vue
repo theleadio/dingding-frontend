@@ -14,7 +14,8 @@
       <p class='mt-10 text-sm font-bold'>Powered by DingDing 🛎</p>
       <p class='text-sm'>https://www.getdingding.com</p>
 
-      <div class='screen-only mt-32 mb-4'>You may save the QR code or print this poster.</div>
+      <div class='screen-only mt-32 mb-4'>You may save the QR code or print this poster. <br/>
+        You will also receive a SMS with your password</div>
       <button class='screen-only bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' @click="print" >Print</button>
 
     </div>
@@ -45,7 +46,7 @@ export default {
     var id = this.$route.params.id;
     var vm = this;
     console.log(id);
-    this.$axios.get(`https://api.getdingding.com/owner/${id}`)
+    this.$axios.get(`owner/${id}`)
     .then( function(result) {
       console.log(result.data[0].name);
       vm.displayName = result.data[0].name;

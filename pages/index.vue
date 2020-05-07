@@ -18,24 +18,23 @@
       </div>
 
       <div class="links">
-        <a href="owner" class="button--purple">
-          Business Owner
-        </a>
+        <nuxt-link class="button--purple" to="/owner/register">Business Owner</nuxt-link>
       </div>
 
       <div class='text-center pt-4 px-5 md:px-20'>
-        DingDing app helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. 
+        DingDing app helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. <br/><br/>
+        <span class='text-red-600'>No apps download required!</span>
       </div>
 
 
     </div>
     
     <!-- Second Row -->
-    <div class='bg-gray-200 w-full py-10 text-left'>
+    <div class='bg-gray-200 w-full py-10 text-left px-8'>
       <h2 class='subtitle md:super-subtitle text-center'>What is DingDing?</h2>
-      <p class='px-4'>DingDing is an application that helps you to keep track of customers who have visited your shop, as part of the SOP requirements by the government, and helps to keep yourself and your customers safe.</p>
-      <p class='px-4 mt-4 font-semibold'>Follow the steps below to begin using DingDing:</p>
-      <ol class='px-4 list-disc list-inside'>
+      <p>DingDing is an application that helps you to keep track of customers who have visited your shop, as part of the SOP requirements by the government, and helps to keep yourself and your customers safe.</p>
+      <p class='mt-4 font-semibold'>Follow the steps below to begin using DingDing:</p>
+      <ol class='list-disc list-inside'>
         <li>STEP 1: Select your role as a business owner, sign up for an account using your mobile phone.</li>
         <li>STEP 2: Print the QR code and paste it around your premise, or send it to your customers.</li>
         <li>STEP 3: Make sure your customers to scan the QR code and register, before entering your premise.</li>

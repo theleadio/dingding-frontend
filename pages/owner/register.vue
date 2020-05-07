@@ -2,46 +2,51 @@
 <div>
   <NavBar />
 
-  <ErrorBox :error="error" :errorTitle='errorTitle' :errorMessage='errorMessage' />
+  <div class='w-full lg:w-1/3 px-10 mx-auto mt-6' v-show="error">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
+      <strong class="font-bold">Registration failed!</strong>
+      <span class="block sm:inline">{{ errorMessage }}</span>
+    </div>
+  </div>
 
   <div class="container">
     <div>
       <h2 class="subtitle mt-8 mb-4">
-        Business Owner Login
+        Business Registration
       </h2>
 
-  <form class="w-full px-4 md:w-1/2 md:mx-auto">
+  <form class="w-full">
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-          Mobile phone
+          Business Name
         </label>
       </div>
       <div class="md:w-2/3">
-        <input v-model="login.username" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="01034567890" >
+        <input v-model="businessName" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="e.g. Yummy Burger" >
       </div>
     </div>
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-phone">
-          Password
+          Mobile Phone 
         </label>
       </div>
       <div class="md:w-2/3">
-        <input v-model="login.password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-phone" type="password" placeholder="">
+        <input v-model="mobile" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-phone" type="tel" placeholder="e.g. 012-7833132" pattern="01[0-9]{1}-[0-9]{8}">
       </div>
     </div>
     <div class="md:flex md:items-center mb-6">
       <label class="md:w-full block text-gray-700">
-        <span class="text-sm lg:pl-6">
-          Forgot password? Click <nuxt-link to="/owner/reset" class='underline'>here</nuxt-link> to reset.
+        <span class=" lg:pl-6">
+          Already register? <nuxt-link to="/owner/login" class='font-bold'>Login here</nuxt-link>
         </span>
       </label>
     </div>
     <div class="md:flex md:items-center">
       <div class='mx-auto'>
-        <button @click="userLogin" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-          Login
+        <button @click="register" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+          Register
         </button>
       </div>
     </div>
@@ -56,33 +61,35 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import NavBar from '~/components/NavBar.vue'
-import ErrorBox from '~/components/ErrorBox.vue'
 
 export default {
   components: {
     Logo,
-    NavBar,
-    ErrorBox
+    NavBar
   },
   data() {
     return {
-      login: {
-        username: '0123050788',
-        password: '615363'
-      },
+      businessName: "",
+      mobile: "",
       error: false,
-      errorTitle: "Login failed.",
-      errorMessage: "Either your mobile phone or password is wrong. Please try again"
+      errorMessage: ""
     }
   },
   methods: {
-    async userLogin() {
-      try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-        console.log(response)
-      } catch (err) {
+    register: async function() {
+      console.log('registering...');
+      const res = await this.$axios.$post('/owner', {
+        businessName: this.businessName,
+        mobile: this.mobile
+      })
+      
+      if (res.status == "done") {
+        this.$router.push({path: `/poster/${res.id}`});
+      }
+      else {
         this.error = true;
-        console.log(err)
+        this.errorMessage = "Name has already been taken, please try again"
+        console.log(res);
       }
     }
   }

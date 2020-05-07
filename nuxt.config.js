@@ -40,6 +40,7 @@ export default {
   */
   plugins: [
     { src:'~/plugins/axios.js'},
+    '~/plugins/vue-moment.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -56,7 +57,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    ['@nuxtjs/axios', {"baseURL": process.env.BASE_URL}]
+    ['@nuxtjs/axios', {"baseURL": process.env.BASE_URL}],
+    '@nuxtjs/auth'
   ],
   /*
   ** Build configuration
@@ -66,6 +68,26 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+
+  auth: {
+    redirect: {
+      login: '/owner/login',
+      logout: '/owner/logout',
+      home: '/owner/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/owner/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/owner/logout', method: 'post' },
+          user: { url: '/owner', method: 'get', propertyName: 'user' }
+        },
+        // tokenRequired: true,
+        tokenType: 'bearer',
+        // autoFetchUser: true        
+      }
     }
   }
 }

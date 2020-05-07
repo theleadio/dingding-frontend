@@ -8,10 +8,7 @@
       <h2 class="subtitle md:super-subtitle">
         You have checked in successfully. 
       </h2>
-
       <div>You may close this window now.</div>
-      
-
     </div>
 
   </div>

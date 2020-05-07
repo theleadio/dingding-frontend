@@ -4,11 +4,21 @@
       <span class='mr-4'>🛎</span>
       <a href='/'><span class="font-semibold text-xl tracking-tight">DingDing</span></a>
     </div>
+
+  <div class="text-sm "></div>
+    <div>
+      <button @click='logout' class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-purple-600 hover:bg-white">Logout</button>
+    </div>
   </nav>
 </template>
 
 <script>
   export default {
+    methods: {
+    async logout() {
+      await this.$auth.logout();
+      }
+    },
     computed: {
       getClass() {
         if (this.$route.path.includes('owner') || this.$route.path.includes('poster')) { 
