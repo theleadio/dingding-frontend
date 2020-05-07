@@ -6,7 +6,7 @@
     </div>
 
   <div class="text-sm "></div>
-    <div>
+    <div v-show="this.$auth.loggedIn" >
       <button @click='logout' class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-purple-600 hover:bg-white">Logout</button>
     </div>
   </nav>
