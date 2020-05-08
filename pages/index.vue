@@ -13,7 +13,7 @@
       <div>Please select your role:</div>
       
       <div class="mt-4">
-        <nuxt-link class="button--purple" to="/owner/register">Business Owner</nuxt-link>
+        <nuxt-link class="button--purple" to="/owner/register">Business Owner Signup</nuxt-link>
       </div>
 
       <div class="mt-4">
@@ -22,7 +22,7 @@
 
       <div class='text-center pt-4 px-5 md:px-20 mt-4'>
         DingDing helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. <br/><br/>
-        <span class='text-red-600'>No apps download required!</span>
+        <span class='text-red-600'>No app download required!</span>
       </div>
 
 

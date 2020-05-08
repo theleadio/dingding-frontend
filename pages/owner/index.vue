@@ -3,14 +3,16 @@
 <div>
   <NavBar />
 
-  <div class="container">
-    <div>
+  <div class="">
+    <div class='text-center mb-4'>
       <h2 class="text-4xl mt-8">
         {{ this.$auth.user.displayname }}
       </h2>
       <h3 class='text-xl mb-4'>Customer List</h3>
+      <div>Looking for your QR code? Click <nuxt-link :to="{ name: 'poster-id', params: { id: `${this.$auth.user.id}` }}" class="font-bold">here.</nuxt-link></div>
     </div>
     
+
     <div class="mx-auto w-1/2 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-show="this.customers.length == 0 && this.alert">
       <p class="font-bold">We don't have any check-in records for your customers yet.</p>
       <p class="text-sm">Please make sure they have scanned the QR code before entering your premise.</p>

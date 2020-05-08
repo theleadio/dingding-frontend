@@ -60,7 +60,7 @@ html {
   border-radius: 4px;
   text-decoration: none;
   padding: 10px 10px;
-  width: 150px;
+  width: 200px;
 }
 
 .button--purple:hover {

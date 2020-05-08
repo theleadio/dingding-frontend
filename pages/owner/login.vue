@@ -4,13 +4,13 @@
 
   <ErrorBox :error="error" :errorTitle='errorTitle' :errorMessage='errorMessage' />
 
-  <div class="container">
-    <div>
+  <div>
+    <div class='text-center'>
       <h2 class="text-4xl mt-8 mb-4">
         Owner Login
       </h2>
 
-  <form class="w-full px-4 md:w-1/2 md:mx-auto">
+  <form class="w-full px-4 md:w-1/3 md:mx-auto px-4">
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
