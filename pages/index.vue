@@ -2,27 +2,26 @@
   <div class="mobile-container md:container flex-col">
     <div class='pb-10'>
       <logo />
-      <h1 class="title md:super-title">
+
+      <h1 class="text-6xl">
         DingDing
       </h1>
-      <h2 class="subtitle md:super-subtitle">
-        Keep track of your customers easily. 
+      <h2 class="text-2xl mb-8">
+        Keep track of your customers easily
       </h2>
       
       <div>Please select your role:</div>
       
-      <div class="links hidden">
-        <a href="customer">
-          Customer
-        </a>
-      </div>
-
-      <div class="links">
+      <div class="mt-4">
         <nuxt-link class="button--purple" to="/owner/register">Business Owner</nuxt-link>
       </div>
 
-      <div class='text-center pt-4 px-5 md:px-20'>
-        DingDing app helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. <br/><br/>
+      <div class="mt-4">
+        Already signed up? <nuxt-link to="/owner/login" class='font-bold'>Login</nuxt-link> here.
+      </div>
+
+      <div class='text-center pt-4 px-5 md:px-20 mt-4'>
+        DingDing helps business owners to record customers who have visited their premises using QR code. This ensures we follow the SOP without the mess of using pen and paper. <br/><br/>
         <span class='text-red-600'>No apps download required!</span>
       </div>
 
@@ -31,8 +30,8 @@
     
     <!-- Second Row -->
     <div class='bg-gray-200 w-full py-10 text-left px-8'>
-      <h2 class='subtitle md:super-subtitle text-center'>What is DingDing?</h2>
-      <p>DingDing is an application that helps you to keep track of customers who have visited your shop, as part of the SOP requirements by the government, and helps to keep yourself and your customers safe.</p>
+      <h2 class='text-4xl text-center mb-4'>What is DingDing?</h2>
+      <p>DingDing is an application that helps you to keep track of customers who have visited your shop. This is part of the SOP requirements by the government and it helps to keep yourself and your customers safe.</p>
       <p class='mt-4 font-semibold'>Follow the steps below to begin using DingDing:</p>
       <ol class='list-disc list-inside'>
         <li>STEP 1: Select your role as a business owner, sign up for an account using your mobile phone.</li>
@@ -110,8 +109,4 @@ export default {
 
 }
 
-
-.links {
-  padding-top: 9px;
-}
 </style>
