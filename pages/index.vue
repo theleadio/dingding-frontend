@@ -6,7 +6,7 @@
       <h1 class="text-6xl">
         DingDing
       </h1>
-      <h2 class="text-2xl mb-8">
+      <h2 class="text-2xl mb-8 px-6">
         Keep track of your customers easily
       </h2>
       
