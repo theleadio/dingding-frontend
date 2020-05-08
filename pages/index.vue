@@ -10,8 +10,6 @@
         Keep track of your customers easily
       </h2>
       
-      <div>Please select your role:</div>
-      
       <div class="mt-4">
         <nuxt-link class="button--purple" to="/owner/register">Business Owner Signup</nuxt-link>
       </div>
