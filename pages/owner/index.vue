@@ -11,7 +11,12 @@
       <h3 class='text-xl mb-4'>Customer List</h3>
     </div>
     
-    <div class='px-4'>
+    <div class="mx-auto w-1/2 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-show="this.customers.length == 0 && this.alert">
+      <p class="font-bold">We don't have any check-in records for your customers yet.</p>
+      <p class="text-sm">Please make sure they have scanned the QR code before entering your premise.</p>
+    </div>
+
+    <div class='px-4' v-show="this.customers.length > 0">
       <table class="table-auto mx-auto">
         <thead>
           <tr>
@@ -50,7 +55,8 @@ export default {
       mobile: "",
       error: false,
       errorMessage: "",
-      customers:[]
+      customers:[],
+      alert: false
     }
   },
   async mounted() {
@@ -58,6 +64,7 @@ export default {
     var id = this.$auth.user.id;
     const res = await this.$axios.$get(`/owner/${id}/list`)
     this.customers = res;
+    this.alert = true;
   },
   middleware: 'auth'
 }

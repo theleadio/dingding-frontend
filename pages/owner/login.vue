@@ -6,8 +6,8 @@
 
   <div class="container">
     <div>
-      <h2 class="subtitle mt-8 mb-4">
-        Business Owner Login
+      <h2 class="text-4xl mt-8 mb-4">
+        Owner Login
       </h2>
 
   <form class="w-full px-4 md:w-1/2 md:mx-auto">
@@ -18,7 +18,7 @@
         </label>
       </div>
       <div class="md:w-2/3">
-        <input v-model="login.username" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="01034567890" >
+        <input v-model="login.username" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="tel" placeholder="e.g. 01034567890" >
       </div>
     </div>
     <div class="md:flex md:items-center mb-6">
@@ -67,8 +67,8 @@ export default {
   data() {
     return {
       login: {
-        username: '0123050788',
-        password: '615363'
+        username: '',
+        password: ''
       },
       error: false,
       errorTitle: "Login failed.",
@@ -97,8 +97,6 @@ export default {
 */
 .container {
   margin: 0 auto;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 

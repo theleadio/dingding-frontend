@@ -11,11 +11,11 @@
 
   <div class="container">
     <div>
-      <h2 class="subtitle mt-8 mb-4">
+      <h2 class="text-4xl mt-8 mb-4">
         Business Registration
       </h2>
 
-  <form class="w-full">
+  <form class="w-full px-4">
     <div class="md:flex md:items-center mb-6">
       <div class="md:w-1/3">
         <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">

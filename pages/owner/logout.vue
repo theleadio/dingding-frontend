@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
+      <h1 class="text-6xl">
         DingDing
       </h1>
       <h2 class="text-3xl">
