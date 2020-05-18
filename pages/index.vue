@@ -48,6 +48,12 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  head: {
+  script: [
+    { async:true, hid: 'oldbrowser', innerHTML: "(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='7f487a41d12883b7c990ead3887504eb50445aea4cc222fe47b77c90f0dc0be8';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');" }
+  ],
+  __dangerouslyDisableSanitizers: ['script']
   }
 }
 </script>
